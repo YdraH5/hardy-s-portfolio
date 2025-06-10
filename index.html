@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardy - Software Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00f5ff',
+                        'cyber-purple': '#8b5cf6',
+                        'dark-bg': '#0a0a0a',
+                        'dark-card': '#1a1a1a',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px #00f5ff' },
+                            '100%': { boxShadow: '0 0 30px #8b5cf6, 0 0 40px #00f5ff' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(45deg, #00f5ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .particle {
+            position: absolute;
+            background: #00f5ff;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 4s infinite ease-in-out;
+        }
+        
+        .typing-animation::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white overflow-x-hidden">
+    <!-- Particles Background -->
+    <div id="particles" class="fixed inset-0 z-0"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Hardy</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-cyber-blue transition-colors">Home</a>
+                    <a href="#about" class="hover:text-cyber-blue transition-colors">About</a>
+                    <a href="#skills" class="hover:text-cyber-blue transition-colors">Skills</a>
+                    <a href="#projects" class="hover:text-cyber-blue transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-cyber-blue transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-slide-up">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Hi, I'm <span class="gradient-text">Hardy Aranzanso</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 typing-animation" id="typing-text">
+                    Full Stack Developer
+                </p>
+                <div class="flex justify-center space-x-4 mb-12">
+                    <button class="bg-gradient-to-r from-cyber-blue to-cyber-purple px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform animate-glow">
+                        View My Work
+                    </button>
+                    <button class="border border-cyber-blue px-8 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-black transition-all">
+                        Download CV
+                    </button>
+                </div>
+            </div>
+            <div class="animate-float">
+                <div class="w-32 h-32 mx-auto bg-gradient-to-r from-cyber-blue to-cyber-purple rounded-full flex items-center justify-center text-4xl font-bold">
+                    {'</>'}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4">Who I Am</h3>
+                    <p class="text-gray-300 mb-6">
+                        I'm a passionate software developer with 3+ years of hands-on experience in web development, crafting digital solutions that optimize business processes. I specialize in building clean, efficient, and impactful web applications.
+                    </p>
+                    <p class="text-gray-300">
+                    When I’m not coding, I’m exploring new technologies, working on personal projects, exploring open-source, and learning with the developer community.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-cyber-blue">6+</div>
+                        <div class="text-gray-300">Projects</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-cyber-purple">3+</div>
+                        <div class="text-gray-300">Years Learning and Coding</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-cyber-purple">Student</div>
+                        <div class="text-gray-300">Currently Learning & Growing</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl text-center">
+                        <div class="text-3xl font-bold text-cyber-purple">24/7</div>
+                        <div class="text-gray-300">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Skills & Technologies</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold mb-6 text-cyber-blue">Frontend</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="Tailwind CSS" data-level="80"></div>
+                        <div class="skill-item" data-skill="Laravel LIvewire" data-level="70"></div>
+                        <div class="skill-item" data-skill="Javascript" data-level="65"></div>
+                        <div class="skill-item" data-skill="TypeScript" data-level="60"></div>
+                    </div>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold mb-6 text-cyber-purple">Backend</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="Laravel" data-level="90"></div>
+                        <div class="skill-item" data-skill="PHP" data-level="90"></div>
+                        <div class="skill-item" data-skill="MYSQL" data-level="95"></div>
+                        <div class="skill-item" data-skill="Java" data-level="70"></div>
+                    </div>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl hover:scale-105 transition-transform">
+                    <h3 class="text-2xl font-bold mb-6 text-cyber-blue">Tools</h3>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-skill="Git" data-level="90"></div>
+                        <div class="skill-item" data-skill="VS Code" data-level="95"></div>
+                        <div class="skill-item" data-skill="API Integration" data-level="75"></div>
+                        <div class="skill-item" data-skill="Figma" data-level="60"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="apartment.png" alt="Apartment Reservation Preview" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Apartment Reservation</h3>
+                        <p class="text-gray-300 mb-4">Full-stack apartment reservation with Laravel, Tailwind, and payment integration.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-cyber-blue/20 text-cyber-blue rounded-full text-sm">Laravel</span>
+                            <span class="px-3 py-1 bg-cyber-purple/20 text-cyber-purple rounded-full text-sm">Tailwind CSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a target="_blank" href="https://nrn-abode-main-ov69hd.laravel.cloud/" class="text-cyber-blue hover:underline">Live Demo</a>
+                            <a target="_blank" href="https://github.com/YdraH5/FINAL_NRN" class="text-cyber-purple hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="baryo.png" alt="Apartment Reservation Preview" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Inventory and POS System</h3>
+                        <p class="text-gray-300 mb-4">An inventory and POS system for vape shop.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-cyber-blue/20 text-cyber-blue rounded-full text-sm">PHP</span>
+                            <span class="px-3 py-1 bg-cyber-purple/20 text-cyber-purple rounded-full text-sm">HTML/CSS/JS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyber-blue hover:underline">Live Demo</a>
+                            <a target="_blank" href="https://github.com/YdraH5/Baryo-Mausok-Intentory" class="text-cyber-purple hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform group">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-cyber-blue relative">
+                        <div class="absolute inset-0 flex items-center justify-center text-4xl font-bold">
+                            🤖
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">AI Chat Assistant</h3>
+                        <p class="text-gray-300 mb-4">Intelligent chatbot with natural language processing and machine learning.</p>
+                        <div class="flex space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-cyber-blue/20 text-cyber-blue rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-cyber-purple/20 text-cyber-purple rounded-full text-sm">TensorFlow</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-cyber-blue hover:underline">Live Demo</a>
+                            <a href="#" class="text-cyber-purple hover:underline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-6">Let's Work Together</h3>
+                    <p class="text-gray-300 mb-8">
+                        I'm always interested in new opportunities and exciting projects. 
+                        Let's discuss how we can bring your ideas to life.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cyber-blue/20 rounded-full flex items-center justify-center">
+                                📧
+                            </div>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="text-gray-300">hardy.aranzanso.5@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cyber-purple/20 rounded-full flex items-center justify-center">
+                                📱
+                            </div>
+                            <div>
+                                <div class="font-semibold">Phone</div>
+                                <div class="text-gray-300">09638474304</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cyber-blue/20 rounded-full flex items-center justify-center">
+                                📍
+                            </div>
+                            <div>
+                                <div class="font-semibold">Location</div>
+                                <div class="text-gray-300">Carmona Cavite, PH</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="glass-effect p-8 rounded-2xl">
+                    <div class="space-y-6">
+                        <div>
+                            <input type="text" placeholder="Your Name" 
+                                   class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 focus:border-cyber-blue focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" 
+                                   class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 focus:border-cyber-blue focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Your Message" rows="5" 
+                                      class="w-full bg-transparent border border-gray-600 rounded-lg px-4 py-3 focus:border-cyber-blue focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-cyber-blue to-cyber-purple py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800 relative z-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://web.facebook.com/hardy.aranzans0" class="text-2xl hover:text-cyber-blue transition-colors">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="linkedin.com/in/hardy-aranzanso-968582368/" class="text-2xl hover:text-cyber-blue transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="github.com/YdraH5" class="text-2xl hover:text-cyber-blue transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-cyber-blue transition-colors">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="text-gray-400">© 2024 Hardy Aranzanso. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const texts = ['Full Stack Web Developer', 'Problem Solver' ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        typeWriter();
+
+        // Particles animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            particle.style.opacity = Math.random() * 0.5 + 0.2;
+            
+            document.getElementById('particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 8000);
+        }
+
+        setInterval(createParticle, 300);
+
+        // Skill bars animation
+        function animateSkillBars() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach(item => {
+                const skill = item.dataset.skill;
+                const level = item.dataset.level;
+                
+                item.innerHTML = `
+                    <div class="flex justify-between mb-2">
+                        <span>${skill}</span>
+                        <span>${level}%</span>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-cyber-blue to-cyber-purple h-2 rounded-full transition-all duration-1000 ease-out" 
+                             style="width: 0%"></div>
+                    </div>
+                `;
+                
+                // Animate the progress bar
+                setTimeout(() => {
+                    const progressBar = item.querySelector('.bg-gradient-to-r');
+                    progressBar.style.width = level + '%';
+                }, 500);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'skills') {
+                        animateSkillBars();
+                    }
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.addEventListener('click', () => {
+            // Add mobile menu functionality here
+            console.log('Mobile menu clicked');
+        });
+    </script>
+</body>
+</html>
